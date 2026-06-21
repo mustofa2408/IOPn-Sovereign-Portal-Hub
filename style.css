@@ -1,0 +1,390 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+:root {
+    --bg-base: #04060a; /* Ultra dark background khas iopn.io */
+    --bg-surface: rgba(10, 13, 22, 0.7); /* Efek semi-transparan untuk frame */
+    --border-glow: rgba(0, 242, 254, 0.25); /* Cyan glow border */
+    --border-subtle: rgba(255, 255, 255, 0.05); /* Border tipis samar */
+    --text-primary: #ffffff;
+    --text-secondary: #8492a6;
+    --accent-cyan: #00f2fe;
+    --accent-purple: #7f00ff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+/* 1. BACKGROUND STYLE (Kombinasi Grid Jaringan & Pendaran Nebula iopn.io) */
+body {
+    background-color: var(--bg-base);
+    color: var(--text-primary);
+    overflow-x: hidden;
+    min-height: 100vh;
+    
+    /* Efek Grid + 2 Blob Cahaya Terdesentralisasi di Latar Belakang */
+    background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+        radial-gradient(circle at 15% 20%, rgba(0, 242, 254, 0.18) 0%, transparent 50%),
+        radial-gradient(circle at 85% 75%, rgba(127, 0, 255, 0.12) 0%, transparent 50%);
+    background-size: 50px 50px, 50px 50px, 100% 100%, 100% 100%;
+    background-attachment: fixed;
+}
+
+.app-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* 2. FRAMER STYLE - SIDEBAR (Bingkai Panel Kiri) */
+.sidebar {
+    width: 280px;
+    background: rgba(6, 8, 14, 0.85);
+    border-right: 1px solid var(--border-subtle);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 2.5rem 1.5rem;
+    position: relative;
+    z-index: 10;
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-icon {
+    background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+    padding: 8px 14px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 0.85rem;
+    color: #000;
+    box-shadow: 0 0 15px rgba(0, 242, 254, 0.3);
+}
+
+.logo-section h2 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.nav-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: -100px;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    padding: 14px;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid transparent;
+}
+
+.nav-item:hover, .nav-item.active {
+    color: var(--text-primary);
+    background: rgba(255, 255, 255, 0.03);
+    border-left: 2px solid var(--accent-cyan);
+    border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-subtle);
+}
+
+.avatar {
+    width: 38px;
+    height: 38px;
+    background: linear-gradient(135deg, var(--accent-purple), #4facfe);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.user-info .username {
+    font-size: 0.9rem;
+    font-weight: 600;
+    display: block;
+}
+
+.user-info .role {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+}
+
+/* MAIN CONTENT CONTAINER */
+.main-content {
+    flex: 1;
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    max-height: 100vh;
+    overflow-y: auto;
+}
+
+.top-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-subtle);
+    padding: 12px 18px;
+    border-radius: 99px;
+    width: 320px;
+}
+
+.search-bar input {
+    background: none;
+    border: none;
+    color: white;
+    outline: none;
+    width: 100%;
+    font-size: 0.9rem;
+}
+
+.btn-primary {
+    background: #ffffff;
+    border: none;
+    padding: 12px 26px;
+    border-radius: 99px; /* Rounded pill khas iopn.io buttons */
+    color: #000;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 20px var(--border-glow);
+    background: var(--accent-cyan);
+}
+
+.tab-content {
+    display: none;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.tab-content.active {
+    display: flex;
+}
+
+/* 3. FRAMER STYLE - BANNER & CARDS (Efek Bingkai Kaca Transparan / Glassmorphism) */
+.welcome-banner {
+    background: linear-gradient(135deg, rgba(15, 20, 35, 0.5) 0%, rgba(5, 7, 12, 0.5) 100%);
+    border: 1px solid var(--border-subtle);
+    padding: 3rem;
+    border-radius: 20px;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+.welcome-banner h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.5px;
+    background: linear-gradient(90deg, #fff 40%, var(--text-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.welcome-banner p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    max-width: 700px;
+}
+
+/* STATS GRID & FRAMER CARDS */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.75rem;
+}
+
+/* Karakteristik Utama Frame iopn.io: Garis Tepi Tegas Berpendar */
+.stat-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    padding: 1.75rem;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    position: relative;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.stat-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--border-glow);
+}
+
+.card-icon {
+    font-size: 1.6rem;
+    color: var(--accent-cyan);
+    background: rgba(0, 242, 254, 0.05);
+    width: 54px;
+    height: 54px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(0, 242, 254, 0.15);
+}
+
+.card-data h3 {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+.card-data .value {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin: 4px 0;
+    letter-spacing: -0.5px;
+}
+
+.trend { font-size: 0.8rem; font-weight: 500; }
+.trend.positive { color: #00e676; }
+
+.trend-live {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--accent-cyan);
+    background: rgba(0, 242, 254, 0.1);
+    padding: 2px 8px;
+    border-radius: 20px;
+    border: 1px solid rgba(0, 242, 254, 0.2);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 0.5; }
+    50% { opacity: 1; }
+    100% { opacity: 0.5; }
+}
+
+/* WIDE CONTENT CARD & LOGS */
+.content-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    padding: 2rem;
+    border-radius: 16px;
+    backdrop-filter: blur(16px);
+}
+
+.content-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+.log-container {
+    background: #020306;
+    border-radius: 10px;
+    padding: 1.25rem;
+    font-family: 'Courier New', monospace;
+    font-size: 0.85rem;
+    color: #00e676;
+    height: 180px;
+    overflow-y: auto;
+    border: 1px solid var(--border-subtle);
+}
+
+.log-entry {
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
+/* NEOID BINGKAI KARTU ID INTERAKTIF */
+.inner-page h2 {
+    font-size: 1.6rem;
+    margin-bottom: 0.5rem;
+}
+
+.inner-page p {
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+}
+
+.id-card-front {
+    width: 380px;
+    height: 220px;
+    background: linear-gradient(135deg, rgba(15, 20, 35, 0.8) 0%, rgba(5, 7, 12, 0.9) 100%);
+    border: 1px solid var(--accent-cyan);
+    border-radius: 16px;
+    padding: 1.75rem;
+    box-shadow: 0 0 30px rgba(0, 242, 254, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.id-card-front::after {
+    content: '';
+    position: absolute;
+    bottom: -50px;
+    right: -50px;
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle, rgba(127, 0, 255, 0.2) 0%, transparent 70%);
+}
+
+.id-header h4 {
+    color: var(--accent-cyan);
+    letter-spacing: 2px;
+    font-size: 0.85rem;
+    border-bottom: 1px solid var(--border-subtle);
+    padding-bottom: 12px;
+    margin-bottom: 20px;
+}
+
+.id-body p {
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+    color: #fff;
+}
+
+.id-body strong {
+    color: var(--text-secondary);
+    font-weight: 500;
+}
