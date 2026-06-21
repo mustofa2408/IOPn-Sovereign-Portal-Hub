@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IOPn Sovereign Portal Hub</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mustofa2408/IOPn-Sovereign-Portal-Hub@main/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="logo-section">
+                <div class="logo-icon">IOPn</div>
+                <h2>Builders Hub</h2>
+            </div>
+            <nav class="nav-menu">
+                <a href="#" class="nav-item active" data-tab="dashboard"><i class="fa-solid fa-chart-pie"></i> Dashboard</a>
+                <a href="#" class="nav-item" data-tab="neoid"><i class="fa-solid fa-id-card"></i> NeoID Manager</a>
+                <a href="#" class="nav-item" data-tab="opnchain"><i class="fa-solid fa-cubes"></i> OPN Chain</a>
+                <a href="#" class="nav-item" data-tab="atlas"><i class="fa-solid fa-brain"></i> Project ATLAS</a>
+            </nav>
+            <div class="user-profile">
+                <div class="avatar">M</div>
+                <div class="user-info">
+                    <span class="username">mustofa2408</span>
+                    <span class="role">IOPn Builder</span>
+                </div>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-header">
+                <div class="search-bar">
+                    <i class="fa-solid fa-search"></i>
+                    <input type="text" placeholder="Search the IOPn ecosystem...">
+                </div>
+                <div class="header-actions">
+                    <button id="connect-wallet" class="btn-primary"><i class="fa-solid fa-wallet"></i> Connect NeoID</button>
+                </div>
+            </header>
+
+            <div id="dashboard-tab" class="tab-content active">
+                <div class="welcome-banner">
+                    <h1>Welcome to the Future of Digital Sovereignty</h1>
+                    <p>Monitor OPN network metrics, manage decentralized identities, and build your sovereign AI infrastructure seamlessly.</p>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="card-icon"><i class="fa-solid fa-bolt"></i></div>
+                        <div class="card-data">
+                            <h3>OPN Chain TPS</h3>
+                            <p id="tps-value" class="value">100,000+</p>
+                            <span class="trend positive"><i class="fa-solid fa-arrow-up"></i> Theoretical Maximum</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="card-icon"><i class="fa-solid fa-link"></i></div>
+                        <div class="card-data">
+                            <h3>Block Height</h3>
+                            <p id="block-height" class="value">1,240,582</p>
+                            <span class="trend-live">Live</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="card-icon"><i class="fa-solid fa-users"></i></div>
+                        <div class="card-data">
+                            <h3>Active Builders</h3>
+                            <p class="value">4,821</p>
+                            <span class="trend positive"><i class="fa-solid fa-arrow-up"></i> +12% this week</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-grid">
+                    <div class="content-card wide">
+                        <h3>Network Building Activity (Live Logs)</h3>
+                        <div class="log-container" id="log-container">
+                            </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="neoid-tab" class="tab-content">
+                <div class="inner-page">
+                    <h2><i class="fa-solid fa-id-card"></i> NeoID - One Credential, Full Control</h2>
+                    <p>Decentralized Identity solution designed to claim your data sovereignty, free from corporate extraction protocols.</p>
+                    <div class="id-mockup">
+                        <div class="id-card-front">
+                            <div class="id-header"><h4>NEOID SOVEREIGN ID</h4></div>
+                            <div class="id-body">
+                                <p><strong>DID:</strong> did:iopn:mustofa2408x77f39b</p>
+                                <p><strong>Status:</strong> Network Verified</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="opnchain-tab" class="tab-content">
+                <div class="inner-page">
+                    <h2><i class="fa-solid fa-cubes"></i> OPN Chain</h2>
+                    <p>A high-speed Layer 1 blockchain infrastructure utilizing Proof of Stake consensus, engineered specifically for a transparent human economy.</p>
+                </div>
+            </div>
+
+            <div id="atlas-tab" class="tab-content">
+                <div class="inner-page">
+                    <h2><i class="fa-solid fa-brain"></i> Project ATLAS</h2>
+                    <p>An advanced AI hosting infrastructure operating on top of a trustless verification layer to guarantee sovereign and secure AI environments.</p>
+                </div>
+            </div>
+
+        </main>
+    </div>
+    <script src="https://cdn.jsdelivr.net/gh/mustofa2408/IOPn-Sovereign-Portal-Hub@main/script.js"></script>
+</body>
+</html>
